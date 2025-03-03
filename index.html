@@ -22,7 +22,7 @@
                 <input type="tel" id="mobile" placeholder="Mobile Number" required>
 
                 <!-- Payment Section -->
-                <div class="payment-section">
+                <div class="payment-options">
                     <button type="button" id="payBtn" class="payment-btn">Proceed to Payment</button>
                 </div>
 
@@ -32,7 +32,9 @@
     </div>
 
     <script>
-        emailjs.init("dxjCTYyaaiZu9aeED"); // Replace with your Email.js Public Key
+        window.onload = function() {
+            emailjs.init("dxjCTYyaaiZu9aeED"); // EmailJS Public Key
+        };
 
         document.getElementById("payBtn").addEventListener("click", function () {
             var options = {
@@ -40,7 +42,7 @@
                 name: "Own Time Event",
                 description: "Storytelling Registration",
                 currency: "INR",
-                amount: 100, // Amount in paise (₹100)
+                amount: 10000, // ₹100.00 (in paise)
                 handler: function (response) {
                     alert("Payment Successful! Payment ID: " + response.razorpay_payment_id);
                     document.getElementById("registerBtn").disabled = false; // Enable Register Button
@@ -49,18 +51,28 @@
 
             var rzp = new Razorpay(options);
             rzp.open();
+
+            rzp.on('payment.failed', function(response) {
+                alert("Payment Failed! Please try again.");
+                document.getElementById("registerBtn").disabled = true;
+            });
         });
 
         document.getElementById("registerForm").addEventListener("submit", function(event) {
             event.preventDefault();
-            
+
+            if (document.getElementById("registerBtn").disabled) {
+                alert("Please complete payment before registering.");
+                return;
+            }
+
             const serviceID = "service_td1nioq";
             const templateID = "template_pbeimtp";
-            
+
             const templateParams = {
-                name: document.getElementById("name").value,
-                email: document.getElementById("email").value,
-                mobile: document.getElementById("mobile").value
+                name: document.getElementById("name").value.trim(),
+                email: document.getElementById("email").value.trim(),
+                mobile: document.getElementById("mobile").value.trim()
             };
 
             emailjs.send(serviceID, templateID, templateParams)

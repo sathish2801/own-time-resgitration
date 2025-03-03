@@ -4,14 +4,18 @@ body {
     font-family: "Poppins", sans-serif;
     margin: 0;
     padding: 0;
-    background-image: url("images/background.png") ;
+    background-image: url("images/background.png");
+    background-size: cover;
+    background-position: center;
     height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
+    color: white;
 }
 
+/* Dark Transparent Overlay */
 .overlay {
     position: absolute;
     top: 0;
@@ -19,18 +23,21 @@ body {
     width: 100%;
     height: 100%;
     background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(2px);
 }
 
+/* Centered Content */
 .container {
     position: relative;
     text-align: center;
-    color: #fff;
     z-index: 1;
 }
 
+/* Heading Styling */
 .title {
     font-size: 1.8rem;
     font-weight: 600;
+    
 }
 
 .title span {
@@ -42,19 +49,18 @@ body {
     color: #72a2d4;
 }
 
+/* Form Section with Blur Effect */
 .form-container {
-    background: rgba(0, 0, 0, 0.6);
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent */
     padding: 25px;
     border-radius: 10px;
     width: 400px;
     margin: 20px auto;
+    backdrop-filter: blur(12px);
     box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.1);
 }
 
-h2 {
-    margin-bottom: 10px;
-}
-
+/* Input Fields */
 input {
     width: 90%;
     padding: 12px;
@@ -62,34 +68,46 @@ input {
     background: rgba(255, 255, 255, 0.1);
     border: none;
     border-radius: 5px;
-    color: #fff;
+    color: white;
+    font-size: 14px;
 }
 
 input::placeholder {
     color: rgba(255, 255, 255, 0.7);
 }
 
+/* Payment Options (Blurred, Transparent) */
 .payment-options {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+    gap: 10px;
     margin: 15px 0;
-    padding: 10px;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 5px;
+    padding: 5px;
+    background: rgba(255, 255, 255, 0.1); /* Slight transparency */
+    border-radius: 8px;
+    backdrop-filter: blur(10px); /* Blur effect */
 }
 
+/* Corrected Payment Button */
 .payment-btn {
     flex: 1;
     text-align: center;
-    padding: 10px;
-    font-size: 14px;
+    padding: 12px;
+    font-size: 16px;
+    font-weight: 500;
+    color: white; /* Ensure text is white */
+    background: rgba(42, 42, 43, 0.8);
+    border: none;
+    border-radius: 5px;
     cursor: pointer;
+    transition: all 0.3s ease-in-out;
 }
 
-.payment-btn:first-child {
-    border-right: 1px solid rgba(255, 255, 255, 0.3);
+.payment-btn:hover {
+    background: rgba(0, 123, 255, 1); /* Solid blue on hover */
 }
 
+/* Register Button */
 .register-btn {
     width: 100%;
     padding: 12px;
@@ -99,9 +117,101 @@ input::placeholder {
     font-size: 16px;
     border-radius: 5px;
     cursor: pointer;
-    transition: 0.3s;
+    transition: background 0.3s;
+    opacity: 0.7;
+}
+
+.register-btn:disabled {
+    background: #555; /* Grey when disabled */
+    cursor: not-allowed;
 }
 
 .register-btn:hover {
     background: #5a90c1;
+    opacity: 1;
+}
+
+/* -------------------- */
+/* Responsive Media Queries */
+/* -------------------- */
+
+/* Tablets & Small Laptops (max-width: 1024px) */
+@media (max-width: 1024px) {
+    .form-container {
+        width: 80%;
+        padding: 20px;
+    }
+}
+
+/* Mobile Devices (max-width: 768px) */
+@media (max-width: 768px) {
+    body {
+        flex-direction: column;
+        height: auto;
+        padding: 20px;
+    }
+
+    .form-container {
+        width: 90%;
+        padding: 15px;
+    }
+
+    .title {
+        font-size: 1.5rem;
+    }
+
+    .time {
+        font-size: 1rem;
+    }
+
+    input {
+        font-size: 12px;
+        padding: 10px;
+    }
+
+    .payment-options {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .payment-btn {
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    .register-btn {
+        font-size: 14px;
+        padding: 10px;
+    }
+}
+
+/* Extra Small Devices (max-width: 480px) */
+@media (max-width: 480px) {
+    .form-container {
+        width: 95%;
+        padding: 10px;
+    }
+
+    .title {
+        font-size: 1.3rem;
+    }
+
+    .time {
+        font-size: 0.9rem;
+    }
+
+    .payment-options {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .payment-btn {
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    .register-btn {
+        font-size: 14px;
+        padding: 10px;
+    }
 }
