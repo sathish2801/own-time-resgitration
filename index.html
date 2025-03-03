@@ -4,47 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Own Time - Registration</title>
+    <link rel="stylesheet" href="styles.css">
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-    <style>
-        body {
-            background: url('your-background-image.jpg') no-repeat center center/cover;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            color: white;
-            font-family: Arial, sans-serif;
-        }
-        .container {
-            background: rgba(0, 0, 0, 0.7);
-            padding: 20px;
-            border-radius: 10px;
-            width: 350px;
-            text-align: center;
-        }
-        input, button {
-            width: 100%;
-            margin: 10px 0;
-            padding: 10px;
-            border-radius: 5px;
-            border: none;
-        }
-        button {
-            background: #3498db;
-            color: white;
-            cursor: pointer;
-        }
-    </style>
 </head>
 <body>
+    <div class="overlay"></div>
     <div class="container">
-        <h2>Register for Storytelling</h2>
-        <form id="registerForm">
-            <input type="text" id="name" placeholder="Name" required>
-            <input type="email" id="email" placeholder="Email" required>
-            <input type="tel" id="mobile" placeholder="Mobile No." required>
-            <button type="submit">Register</button>
-        </form>
+        <h1 class="title">OWN <span>TIME</span></h1>
+        <p class="time">7.00 PM | <span>Feb 27, Wed</span></p>
+
+        <div class="form-container">
+            <h2>Register for Storytelling</h2>
+            <form id="registerForm">
+                <input type="text" id="name" placeholder="Your Name" required>
+                <input type="email" id="email" placeholder="Your Email" required>
+                <input type="tel" id="mobile" placeholder="Mobile Number" required>
+
+                <div class="payment-options">
+                    <div class="payment-btn">QR Code</div>
+                    <div class="payment-btn">UPI Payment</div>
+                </div>
+
+                <button type="submit" class="register-btn">Register</button>
+            </form>
+        </div>
     </div>
 
     <script>
