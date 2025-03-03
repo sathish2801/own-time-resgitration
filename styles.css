@@ -7,6 +7,7 @@ body {
     background-image: url("images/background.png");
     background-size: cover;
     background-position: center;
+    background-repeat: no-repeat;
     height: 100vh;
     display: flex;
     align-items: center;
@@ -31,13 +32,15 @@ body {
     position: relative;
     text-align: center;
     z-index: 1;
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
 }
 
 /* Heading Styling */
 .title {
     font-size: 1.8rem;
     font-weight: 600;
-    
 }
 
 .title span {
@@ -54,8 +57,8 @@ body {
     background: rgba(0, 0, 0, 0.5); /* Semi-transparent */
     padding: 25px;
     border-radius: 10px;
-    width: 400px;
-    margin: 20px auto;
+    width: 100%;
+    max-width: 400px;
     backdrop-filter: blur(12px);
     box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.1);
 }
@@ -83,19 +86,19 @@ input::placeholder {
     gap: 10px;
     margin: 15px 0;
     padding: 5px;
-    background: rgba(255, 255, 255, 0.1); /* Slight transparency */
+    background: rgba(255, 255, 255, 0.1);
     border-radius: 8px;
-    backdrop-filter: blur(10px); /* Blur effect */
+    backdrop-filter: blur(10px);
 }
 
-/* Corrected Payment Button */
+/* Payment Button */
 .payment-btn {
     flex: 1;
     text-align: center;
     padding: 12px;
     font-size: 16px;
     font-weight: 500;
-    color: white; /* Ensure text is white */
+    color: white;
     background: rgba(42, 42, 43, 0.8);
     border: none;
     border-radius: 5px;
@@ -104,7 +107,7 @@ input::placeholder {
 }
 
 .payment-btn:hover {
-    background: rgba(0, 123, 255, 1); /* Solid blue on hover */
+    background: rgba(0, 123, 255, 1);
 }
 
 /* Register Button */
@@ -122,7 +125,7 @@ input::placeholder {
 }
 
 .register-btn:disabled {
-    background: #555; /* Grey when disabled */
+    background: #555;
     cursor: not-allowed;
 }
 
@@ -131,29 +134,34 @@ input::placeholder {
     opacity: 1;
 }
 
-/* -------------------- */
-/* Responsive Media Queries */
-/* -------------------- */
+/* Responsive Design */
+@media (max-width: 768px) {
+    body {
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
 
-/* Tablets & Small Laptops (max-width: 1024px) */
-@media (max-width: 1024px) {
+    .container {
+        max-width: 90%;
+        padding: 15px;
+    }
+
     .form-container {
-        width: 80%;
-        padding: 20px;
+        max-width: 100%;
     }
 }
 
-/* Mobile Devices (max-width: 768px) */
-@media (max-width: 768px) {
+@media (max-width: 480px) {
     body {
-        flex-direction: column;
-        height: auto;
-        padding: 20px;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
     }
 
-    .form-container {
-        width: 90%;
-        padding: 15px;
+    .container {
+        max-width: 95%;
+        padding: 10px;
     }
 
     .title {
@@ -164,45 +172,12 @@ input::placeholder {
         font-size: 1rem;
     }
 
+    .form-container {
+        padding: 20px;
+    }
+
     input {
         font-size: 12px;
-        padding: 10px;
-    }
-
-    .payment-options {
-        flex-direction: column;
-        gap: 5px;
-    }
-
-    .payment-btn {
-        font-size: 14px;
-        padding: 10px;
-    }
-
-    .register-btn {
-        font-size: 14px;
-        padding: 10px;
-    }
-}
-
-/* Extra Small Devices (max-width: 480px) */
-@media (max-width: 480px) {
-    .form-container {
-        width: 95%;
-        padding: 10px;
-    }
-
-    .title {
-        font-size: 1.3rem;
-    }
-
-    .time {
-        font-size: 0.9rem;
-    }
-
-    .payment-options {
-        flex-direction: column;
-        gap: 5px;
     }
 
     .payment-btn {
