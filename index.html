@@ -27,6 +27,7 @@
                 </div>
 
                 <button type="submit" id="registerBtn" class="register-btn" disabled>Register</button>
+                <p id="statusMessage"></p>
             </form>
         </div>
     </div>
@@ -37,6 +38,8 @@
         };
 
         document.getElementById("payBtn").addEventListener("click", function () {
+            document.getElementById("statusMessage").innerText = "Processing payment...";
+
             var options = {
                 key: "rzp_test_HasI5HGgoz6YN3", // Replace with your Razorpay Key ID
                 name: "Own Time Event",
@@ -46,6 +49,7 @@
                 handler: function (response) {
                     alert("Payment Successful! Payment ID: " + response.razorpay_payment_id);
                     document.getElementById("registerBtn").disabled = false; // Enable Register Button
+                    document.getElementById("statusMessage").innerText = "Payment successful! Now you can register.";
                 }
             };
 
@@ -55,6 +59,7 @@
             rzp.on('payment.failed', function(response) {
                 alert("Payment Failed! Please try again.");
                 document.getElementById("registerBtn").disabled = true;
+                document.getElementById("statusMessage").innerText = "Payment failed. Try again.";
             });
         });
 
@@ -65,6 +70,8 @@
                 alert("Please complete payment before registering.");
                 return;
             }
+
+            document.getElementById("statusMessage").innerText = "Registering... Please wait.";
 
             const serviceID = "service_td1nioq";
             const templateID = "template_pbeimtp";
@@ -78,8 +85,10 @@
             emailjs.send(serviceID, templateID, templateParams)
                 .then(response => {
                     alert("Registration Successful! Details sent to your email.");
+                    document.getElementById("statusMessage").innerText = "Registration successful!";
                 }, error => {
                     alert("Failed to send email. Please try again.");
+                    document.getElementById("statusMessage").innerText = "Email sending failed.";
                 });
         });
     </script>
