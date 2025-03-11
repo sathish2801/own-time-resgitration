@@ -4,57 +4,110 @@ body {
     font-family: "Poppins", sans-serif;
     margin: 0;
     padding: 0;
-    background-image: url("images/background.png");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+    color: white;
+    background: black; /* Black theme for entire page */
+}
+
+/* Hero Section */
+/* Hero Section */
+.hero {
     height: 100vh;
     display: flex;
     align-items: center;
-    justify-content: center;
-    position: relative;
+    justify-content: space-between;
+    padding: 0 10%;
+    background: black; /* Black Theme */
+}
+
+/* Left Side: Hero Content */
+.hero-content {
+    width: 50%;
     color: white;
 }
 
-/* Dark Transparent Overlay */
-.overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.6);
-    backdrop-filter: blur(2px);
+.hero-content h1 {
+    font-size: 3rem;
+    margin-bottom: 40px;
 }
 
-/* Centered Content */
+.hero-content span {
+    color: #f39c12;
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    margin-bottom: 50px;
+    color: rgb(186, 185, 185);
+width: 90%;
+}
+
+.cta-btn {
+    background: #f39c12;
+    color: white;
+    padding: 10px 20px;
+    font-size: 1rem;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: 0.3s;
+    margin-top: 60px;
+}
+
+.cta-btn:hover {
+    background: #e67e22;
+}
+
+/* Right Side: Hero Image */
+.hero-image {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero {
+        flex-direction: column;
+        text-align: center;
+        height: auto;
+        padding: 50px 10%;
+    }
+
+    .hero-content {
+        width: 100%;
+    }
+
+    .hero-image {
+        width: 100%;
+        margin-top: 20px;
+    }
+
+    .hero-image img {
+        width: 80%;
+    }
+}
+
+/* Registration Section */
 .container {
+    background: url("images/background.png") no-repeat center center/cover;
     position: relative;
     text-align: center;
     z-index: 1;
     width: 100%;
-    max-width: 400px;
+    
     padding: 20px;
+    margin: 0 auto;
 }
 
-/* Heading Styling */
-.title {
-    font-size: 1.8rem;
-    font-weight: 600;
-}
-
-.title span {
-    color: #72a2d4;
-}
-
-.time {
-    font-size: 1.2rem;
-    color: #72a2d4;
-}
-
-/* Form Section with Blur Effect */
+/* Background Image Only for Form */
 .form-container {
-    background: rgba(0, 0, 0, 0.5); /* Semi-transparent */
+   
     padding: 25px;
     border-radius: 10px;
     width: 100%;
@@ -79,7 +132,7 @@ input::placeholder {
     color: rgba(255, 255, 255, 0.7);
 }
 
-/* Payment Options (Blurred, Transparent) */
+/* Payment Options */
 .payment-options {
     display: flex;
     justify-content: center;
@@ -133,37 +186,128 @@ input::placeholder {
     background: #5a90c1;
     opacity: 1;
 }
+/* Navbar Styles */
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 50%;
+    margin: 20px auto;
+    padding: 15px 30px;
+    backdrop-filter: blur(12px);
+    box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.1);
+    border-radius: 20px; /* Curved Borders */
+    position: fixed;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Left Side - Brand Name */
+.nav-brand {
+    font-size: 24px;
+    font-weight: bold;
+    color: #a6a5a5;
+}
+
+/* Centered Navigation Links */
+.nav-links {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+    padding: 0;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: #333;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+.nav-links li a:hover {
+    color: #007bff;
+}
+
+/* Right Side - Contact Button */
+.nav-contact .contact-btn {
+    background: rgba(42, 42, 43, 0.8);
+    color: white;
+    padding: 8px 15px;
+    border-radius: 12px;
+    text-decoration: none;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+.nav-contact .contact-btn:hover {
+    background-color: #b9babb;
+}
+
 
 /* Responsive Design */
+/* Responsive Design */
 @media (max-width: 768px) {
-    body {
-        background-size: cover !important;
-        background-position: center !important;
-        background-repeat: no-repeat !important;
-    }
-
+    /* Container */
     .container {
         max-width: 90%;
         padding: 15px;
     }
 
+    /* Form Container */
     .form-container {
         max-width: 90%;
+    }
+
+    /* Hero Section */
+    .hero {
+        flex-direction: column;
+        text-align: center;
+        height: auto;
+        padding: 50px 10%;
+    }
+
+    .hero-content {
+        width: 100%;
+    }
+
+    .hero-image {
+        width: 100%;
+        margin-top: 20px;
+    }
+
+    .hero-image img {
+        width: 80%;
+    }
+
+    /* Navbar */
+    .navbar {
+        width: 80%;
+        padding: 12px 20px;
+    }
+
+    .nav-links {
+        gap: 15px;
+    }
+
+    .nav-brand {
+        font-size: 20px;
+    }
+
+    .nav-contact .contact-btn {
+        font-size: 14px;
+        padding: 6px 12px;
     }
 }
 
 @media (max-width: 480px) {
-    body {
-        background-size: cover !important;
-        background-position: center !important;
-        background-repeat: no-repeat !important;
-    }
-
+    /* General Container */
     .container {
         max-width: 95%;
         padding: 10px;
     }
 
+    /* Title and Time */
     .title {
         font-size: 1.5rem;
     }
@@ -172,21 +316,91 @@ input::placeholder {
         font-size: 1rem;
     }
 
+    /* Form Container */
     .form-container {
         padding: 20px;
     }
 
+    /* Input Fields */
     input {
         font-size: 12px;
     }
 
-    .payment-btn {
-        font-size: 14px;
-        padding: 10px;
-    }
-
+    /* Payment & Register Buttons */
+    .payment-btn,
     .register-btn {
         font-size: 14px;
         padding: 10px;
+        width: 100%;
+    }
+
+    /* Navbar */
+    .navbar {
+         
+        align-items: center;
+        padding: 12px 20px;
+        /* Adjust as needed */
+        position: fixed;
+       
+    }
+
+    .nav-links {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+        padding-top: 10px;
+        gap: 8px;
+    }
+
+    .nav-links a {
+        display: block;
+        padding: 10px;
+        font-size: 1rem;
+        text-decoration: none;
+        color: #333;
+    }
+
+
+    .nav-contact .contact-btn {
+        font-size: 12px;
+        padding: 8px 12px;
+    }
+
+    /* Hero Section */
+    .hero {
+        padding: 80px 5%; /* Adjusted to prevent overlap */
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .hero-content h1 {
+        font-size: 1.8rem;
+        
+    }
+
+    .hero-content p {
+        font-size: 1rem;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .cta-btn {
+        font-size: 0.9rem;
+        padding: 10px 16px;
+        width: auto;
+    }
+
+    .hero-image {
+        margin-top: 30px;
+    }
+
+    .hero-image img {
+        width: 100%;
+        max-width: 300px;
     }
 }

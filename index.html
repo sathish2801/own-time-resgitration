@@ -9,11 +9,32 @@
     <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 </head>
 <body>
-    <div class="overlay"></div>
+
+    <!-- Hero Section with Black Theme -->
+    <header class="hero">
+        <nav class="navbar">
+            <!-- Left Side: Brand Name -->
+            <div class="nav-brand">Own Time</div>
+            <div class="nav-contact">
+                <a href="#contact" class="contact-btn">Contact Us</a>
+            </div>
+        </nav>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1>Bringing <span>Stories to Life</span>, One Moment at a Time!</h1>
+            <p>Dive into a thrilling realm where crime, mystery, and fiction collide—laugh, gasp, and unravel mind-blowing tales in a live, immersive storytelling experience! .</p>
+            <a href="#registerForm" class="cta-btn">Register Now</a>
+        </div>
+        <div class="hero-image">
+            <img src="images/Group 10.png" alt="Hero Image">
+        </div>
+    </header>
+
+    <!-- Registration Form Section -->
     <div class="container">
         <h1 class="title">OWN <span>TIME</span></h1>
         <p class="time">7.00 PM | <span>Feb 27, Wed</span></p>
-
+        
         <div class="form-container">
             <h2>Register for Storytelling</h2>
             <form id="registerForm">
@@ -41,14 +62,14 @@
             document.getElementById("statusMessage").innerText = "Processing payment...";
 
             var options = {
-                key: "rzp_test_HasI5HGgoz6YN3", // Replace with your Razorpay Key ID
+                key: "rzp_test_HasI5HGgoz6YN3",
                 name: "Own Time Event",
                 description: "Storytelling Registration",
                 currency: "INR",
-                amount: 10000, // ₹100.00 (in paise)
+                amount: 10000, // ₹100.00 in paise
                 handler: function (response) {
                     alert("Payment Successful! Payment ID: " + response.razorpay_payment_id);
-                    document.getElementById("registerBtn").disabled = false; // Enable Register Button
+                    document.getElementById("registerBtn").disabled = false;
                     document.getElementById("statusMessage").innerText = "Payment successful! Now you can register.";
                 }
             };
