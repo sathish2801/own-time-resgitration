@@ -433,9 +433,7 @@ input:focus {
     .time {
         font-size: 1rem;
     }
-    .hero{
-        margin-top: 10px;
-    }
+    
 
     .hero-content h1 {
         font-size: 2rem;
@@ -468,7 +466,7 @@ input:focus {
     }
 
     .navbar {
-        width: 90%;
+        width: 80%;
         padding: 10px 15px;
     }
 
