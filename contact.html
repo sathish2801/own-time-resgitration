@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Own Time - Contact Us</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+</head>
+<body>
+    <nav class="navbar">
+        <a href="index.html" class="nav-brand">Own Time</a>
+        <!-- <div class="nav-contact">
+            <div class="contact-btn">Contact us</div>
+        </div> -->
+    </nav>
+
+    <main class="contact-container">
+        <h1>Contact Us</h1>
+        <p>Have questions or feedback? We'd love to hear from you!</p>
+        
+        <form id="contactForm" class="contact-form">
+            <input type="text" id="name" placeholder="Your Name" required>
+            <input type="email" id="email" placeholder="Your Email" required>
+            <textarea id="message" placeholder="Your Message" required></textarea>
+            <button type="submit" class="submit-btn">Send Message</button>
+        </form>
+        
+        <div class="contact-info">
+            <h2>Get in Touch</h2>
+            <p>Email: info@owntime.com</p>
+            <p>Phone: +1 (123) 456-7890</p>
+            <p>Address: 123 Story Street, Fiction City, 12345</p>
+        </div>
+    </main>
+
+    <script>
+        window.onload = function() {
+            emailjs.init("dxjCTYyaaiZu9aeED"); // Replace with your EmailJS public key
+        };
+
+        document.getElementById('contactForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            emailjs.sendForm('service_td1nioq', 'template_pbeimtp', this)
+                .then(function() {
+                    alert('Message sent successfully!');
+                    document.getElementById('contactForm').reset();
+                }, function(error) {
+                    alert('Failed to send message. Please try again.');
+                });
+        });
+    </script>
+</body>
+</html>

@@ -1,28 +1,83 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap");
 
+/* General Styles */
 body {
-    font-family: "Poppins", sans-serif;
+    font-family: "Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
     margin: 0;
     padding: 0;
     color: white;
     background: black; /* Black theme for entire page */
 }
 
-/* Hero Section */
+/* Navbar Styles */
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 50%;
+    margin: 20px auto;
+    padding: 15px 30px;
+    backdrop-filter: blur(12px);
+    box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    position: fixed;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.nav-brand {
+    font-size: 24px;
+    font-weight: bold;
+    color: #a6a5a5;
+}
+
+.nav-links {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+    padding: 0;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: #333;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+.nav-links li a:hover {
+    color: #007bff;
+}
+
+.nav-contact .contact-btn {
+    background: rgba(42, 42, 43, 0.8);
+    color: white;
+    padding: 8px 15px;
+    border-radius: 12px;
+    text-decoration: none;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+.nav-contact .contact-btn:hover {
+    background-color: #b9babb;
+}
+
 /* Hero Section */
 .hero {
     height: 100vh;
+    min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 0 10%;
-    background: black; /* Black Theme */
+    background: black;
 }
 
-/* Left Side: Hero Content */
 .hero-content {
     width: 50%;
-    color: white;
+    color: #d0d0d0;
 }
 
 .hero-content h1 {
@@ -38,7 +93,7 @@ body {
     font-size: 1.2rem;
     margin-bottom: 50px;
     color: rgb(186, 185, 185);
-width: 90%;
+    width: 90%;
 }
 
 .cta-btn {
@@ -56,7 +111,6 @@ width: 90%;
     background: #e67e22;
 }
 
-/* Right Side: Hero Image */
 .hero-image {
     width: 50%;
     display: flex;
@@ -70,53 +124,28 @@ width: 90%;
     border-radius: 10px;
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-    .hero {
-        flex-direction: column;
-        text-align: center;
-        height: auto;
-        padding: 50px 10%;
-    }
-
-    .hero-content {
-        width: 100%;
-    }
-
-    .hero-image {
-        width: 100%;
-        margin-top: 20px;
-    }
-
-    .hero-image img {
-        width: 80%;
-    }
-}
-
 /* Registration Section */
 .container {
-    background: url("images/background.png") no-repeat center center/cover;
-    position: relative;
-    text-align: center;
-    z-index: 1;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 40px;
+    padding: 40px 10%;
     width: 100%;
-    
-    padding: 20px;
-    margin: 0 auto;
+    max-width: 1200px;
+    margin: auto;
 }
 
-/* Background Image Only for Form */
 .form-container {
-   
-    padding: 25px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    padding: 42px 25px;
     border-radius: 10px;
-    width: 100%;
+    width: 90%;
     max-width: 400px;
-    backdrop-filter: blur(12px);
     box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.1);
 }
 
-/* Input Fields */
 input {
     width: 90%;
     padding: 12px;
@@ -132,7 +161,11 @@ input::placeholder {
     color: rgba(255, 255, 255, 0.7);
 }
 
-/* Payment Options */
+input:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(243, 156, 18, 0.5);
+}
+
 .payment-options {
     display: flex;
     justify-content: center;
@@ -142,9 +175,9 @@ input::placeholder {
     background: rgba(255, 255, 255, 0.1);
     border-radius: 8px;
     backdrop-filter: blur(10px);
+    width: 94%;
 }
 
-/* Payment Button */
 .payment-btn {
     flex: 1;
     text-align: center;
@@ -163,7 +196,6 @@ input::placeholder {
     background: rgba(0, 123, 255, 1);
 }
 
-/* Register Button */
 .register-btn {
     width: 100%;
     padding: 12px;
@@ -186,80 +218,149 @@ input::placeholder {
     background: #5a90c1;
     opacity: 1;
 }
-/* Navbar Styles */
-.navbar {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 50%;
-    margin: 20px auto;
-    padding: 15px 30px;
-    backdrop-filter: blur(12px);
-    box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.1);
-    border-radius: 20px; /* Curved Borders */
-    position: fixed;
-    top: 10px;
-    left: 50%;
-    transform: translateX(-50%);
-}
 
-/* Left Side - Brand Name */
-.nav-brand {
-    font-size: 24px;
-    font-weight: bold;
-    color: #a6a5a5;
-}
-
-/* Centered Navigation Links */
-.nav-links {
-    display: flex;
-    gap: 20px;
-    list-style: none;
-    padding: 0;
-}
-
-.nav-links li a {
-    text-decoration: none;
-    color: #333;
-    font-size: 16px;
-    transition: 0.3s;
-}
-
-.nav-links li a:hover {
-    color: #007bff;
-}
-
-/* Right Side - Contact Button */
-.nav-contact .contact-btn {
-    background: rgba(42, 42, 43, 0.8);
+/* Event Container Styles */
+.event-container {
+    padding: 25px;
+    border-radius: 10px;
+    text-align: center;
+    width: 90%;
+    max-width: 600px;
     color: white;
-    padding: 8px 15px;
-    border-radius: 12px;
+    box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.1);
+}
+
+.event-container h1 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+    color: #f39c12;
+}
+
+.event-details {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+}
+
+.event-details .highlight {
+    font-weight: bold;
+    color: #f39c12;
+}
+
+.event-container .cta-btn {
+    display: inline-block;
+    background: #f39c12;
+    color: white;
+    padding: 10px 20px;
+    font-size: 1rem;
     text-decoration: none;
-    font-size: 16px;
+    border-radius: 5px;
     transition: 0.3s;
+    margin-top: 15px;
 }
 
-.nav-contact .contact-btn:hover {
-    background-color: #b9babb;
+.event-container .cta-btn:hover {
+    background: #e67e22;
 }
 
+/* Contact Page Styles */
+.contact-container {
+    max-width: 800px;
+    margin: 150px auto 20px; 
+    padding: 40px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.1);
+    color: white;
+}
 
-/* Responsive Design */
+.contact-container h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #f39c12;
+    text-align: center;
+}
+
+.contact-container > p {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 1.1rem;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: calc(100% - 24px);
+    padding: 12px;
+
+    
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 16px;
+}
+
+.contact-form textarea {
+    height: 150px;
+    resize: vertical;
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.submit-btn {
+    background: #f39c12;
+    color: white;
+    padding: 12px;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.submit-btn:hover {
+    background: #e67e22;
+}
+
+.contact-info {
+    margin-top: 40px;
+    text-align: center;
+}
+
+.contact-info h2 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    color: #f39c12;
+}
+
+.contact-info p {
+    margin-bottom: 10px;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
-    /* Container */
     .container {
-        max-width: 90%;
-        padding: 15px;
+        flex-direction: column;
+        align-items: center;
+        padding: 20px 5%;
     }
 
-    /* Form Container */
+    .event-container,
     .form-container {
-        max-width: 90%;
+        width: 100%;
+        max-width: 100%;
     }
 
-    /* Hero Section */
     .hero {
         flex-direction: column;
         text-align: center;
@@ -280,7 +381,6 @@ input::placeholder {
         width: 80%;
     }
 
-    /* Navbar */
     .navbar {
         width: 80%;
         padding: 12px 20px;
@@ -298,16 +398,34 @@ input::placeholder {
         font-size: 14px;
         padding: 6px 12px;
     }
+
+    .contact-container {
+        margin-top: 80px;
+        padding: 15px;
+    }
+
+    .contact-container h1 {
+        font-size: 2rem;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+        font-size: 14px;
+    }
+
+    .submit-btn {
+        font-size: 16px;
+    }
 }
 
+/* ... previous CSS code ... */
+
 @media (max-width: 480px) {
-    /* General Container */
     .container {
         max-width: 95%;
         padding: 10px;
     }
 
-    /* Title and Time */
     .title {
         font-size: 1.5rem;
     }
@@ -315,92 +433,79 @@ input::placeholder {
     .time {
         font-size: 1rem;
     }
-
-    /* Form Container */
-    .form-container {
-        padding: 20px;
-    }
-
-    /* Input Fields */
-    input {
-        font-size: 12px;
-    }
-
-    /* Payment & Register Buttons */
-    .payment-btn,
-    .register-btn {
-        font-size: 14px;
-        padding: 10px;
-        width: 100%;
-    }
-
-    /* Navbar */
-    .navbar {
-         
-        align-items: center;
-        padding: 12px 20px;
-        /* Adjust as needed */
-        position: fixed;
-       
-    }
-
-    .nav-links {
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-        text-align: center;
-        padding-top: 10px;
-        gap: 8px;
-    }
-
-    .nav-links a {
-        display: block;
-        padding: 10px;
-        font-size: 1rem;
-        text-decoration: none;
-        color: #333;
-    }
-
-
-    .nav-contact .contact-btn {
-        font-size: 12px;
-        padding: 8px 12px;
-    }
-
-    /* Hero Section */
-    .hero {
-        padding: 80px 5%; /* Adjusted to prevent overlap */
-        text-align: center;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
+    .hero{
+        margin-top: 10px;
     }
 
     .hero-content h1 {
-        font-size: 1.8rem;
-        
+        font-size: 2rem;
     }
 
     .hero-content p {
         font-size: 1rem;
-        text-align: center;
-        align-items: center;
-        justify-content: center;
     }
 
     .cta-btn {
         font-size: 0.9rem;
-        padding: 10px 16px;
-        width: auto;
+        padding: 8px 16px;
     }
 
-    .hero-image {
-        margin-top: 30px;
+    .event-container h1 {
+        font-size: 1.5rem;
     }
 
-    .hero-image img {
-        width: 100%;
-        max-width: 300px;
+    .event-details {
+        font-size: 0.9rem;
+    }
+
+    .form-container {
+        padding: 20px 15px;
+
+    }
+
+    input, .payment-btn, .register-btn {
+        font-size: 14px;
+    }
+
+    .navbar {
+        width: 90%;
+        padding: 10px 15px;
+    }
+
+    .nav-brand {
+        font-size: 18px;
+    }
+
+    .nav-contact .contact-btn {
+        font-size: 12px;
+        padding: 5px 10px;
+    }
+    .contact-container {
+        margin-top: 100px; /* Further adjust margin for very small screens */
+    }
+
+    .contact-container h1 {
+        font-size: 1.8rem;
+    }
+
+    .contact-container > p {
+        font-size: 1rem;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+        font-size: 14px;
+    }
+
+    .submit-btn {
+        font-size: 16px;
+    }
+
+    .contact-info h2 {
+        font-size: 1.5rem;
+    }
+
+    .contact-info p {
+        font-size: 0.9rem;
     }
 }
