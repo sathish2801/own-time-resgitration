@@ -422,7 +422,7 @@ input:focus {
 
 @media (max-width: 480px) {
     .container {
-        max-width: 95%;
+        max-width: 100%;
         padding: 10px;
     }
 
@@ -467,16 +467,16 @@ input:focus {
 
     .navbar {
         width: 80%;
-        padding: 10px 15px;
+        padding: 15px 25px;
     }
 
     .nav-brand {
-        font-size: 18px;
+        font-size: 20px;
     }
 
     .nav-contact .contact-btn {
-        font-size: 12px;
-        padding: 5px 10px;
+        font-size: 14px;
+        padding: 10px 15px;
     }
     .contact-container {
         margin-top: 100px; /* Further adjust margin for very small screens */
