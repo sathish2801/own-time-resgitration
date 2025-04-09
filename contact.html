@@ -35,21 +35,33 @@
     </main>
 
     <script>
-        window.onload = function() {
-            emailjs.init("dxjCTYyaaiZu9aeED"); // Replace with your EmailJS public key
+        window.onload = function () {
+            emailjs.init("dxjCTYyaaiZu9aeED"); // Replace with your actual EmailJS public key
         };
-
-        document.getElementById('contactForm').addEventListener('submit', function(event) {
+    
+        document.getElementById('contactForm').addEventListener('submit', function (event) {
             event.preventDefault();
-
-            emailjs.sendForm('service_td1nioq', 'template_pbeimtp', this)
-                .then(function() {
+    
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+    
+            const templateParams = {
+                name: name,
+                email: email,
+                message: message
+            };
+    
+            emailjs.send('service_td1nioq', 'template_pbeimtp', templateParams)
+                .then(function () {
                     alert('Message sent successfully!');
                     document.getElementById('contactForm').reset();
-                }, function(error) {
+                }, function (error) {
                     alert('Failed to send message. Please try again.');
+                    console.error('EmailJS Error:', error);
                 });
         });
     </script>
+    
 </body>
 </html>
