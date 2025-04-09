@@ -21,7 +21,6 @@
         
         <form id="contactForm" class="contact-form">
             <input type="text" id="name" placeholder="Your Name" required>
-            <input type="email" id="email" placeholder="Your Email" required>
             <textarea id="message" placeholder="Your Message" required></textarea>
             <button type="submit" class="submit-btn">Send Message</button>
         </form>
@@ -43,16 +42,16 @@
             event.preventDefault();
     
             const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
+        
             const message = document.getElementById('message').value;
     
             const templateParams = {
                 name: name,
-                email: email,
+                
                 message: message
             };
     
-            emailjs.send('service_td1nioq', 'template_pbeimtp', templateParams)
+            emailjs.send('service_zbilz3t', 'template_mn8bbuw', templateParams)
                 .then(function () {
                     alert('Message sent successfully!');
                     document.getElementById('contactForm').reset();
